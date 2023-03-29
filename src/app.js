@@ -38,6 +38,27 @@ export default function App() {
         });
     };
 
+const containerStyle = {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+        "width": "100%",
+    "flex-flow": "wrap"
+}
+
+const boxStyle = {
+    "width": "50%",
+    "display": "flex"
+    
+}
+
+const imageStyle = {
+   "object-fit": "contain",
+    "width": "500px",
+    "height": "500px",
+    "padding":"10px" 
+}
+
     useEffect(() => {
         getPhotos();
     }, []);
@@ -57,12 +78,12 @@ export default function App() {
         value={query}
         />
         { loading && <h1>Fetching...</h1> }
-        < div className="container">
+        < div className="container" style={containerStyle}>
             {photos?.map((item, index) => {
                 return (
-                    <div className="box" key ={index}>
+                    <div className="box" style={boxStyle} key ={index}>
                         <img src={item.src
-                            .medium} alt= {item.id} />
+                            .medium} alt= {item.id} style={imageStyle} />
                         </div>
                  );
             })}
